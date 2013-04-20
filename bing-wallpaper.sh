@@ -10,7 +10,7 @@ curl "http://themeserver.microsoft.com/default.aspx?p=Windows&c=Flora&m=en-US" |
 #read file line
 while read line
 do
-    fileName=$(echo $line | sed -e "s;.*/\([^\/]*\)$;\1;" -e "s/[^a-zA-Z0-9%-_]//g" -e "s/-//")
+    fileName=$(echo $line | sed -e "s;.*/\([^\/]*\)$;\1;" -e "s/[^a-zA-Z0-9%-_]//g" -e "s/^-//")
     if [[ -f $fileName ]]; then
         echo "$fileName already exists" > log.txt
     else
